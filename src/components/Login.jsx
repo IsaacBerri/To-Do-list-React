@@ -1,22 +1,9 @@
-import React, { useContext, useState } from "react";
 import "../style/Login.css";
 import { Icon } from "@iconify/react";
-import { LoginContext } from "../context/loginContext";
+import { useErrorCredentials } from "../Hook/useErrorCredentials.js";
 
 const Login = () => {
-  const [erroCredentials, setErrorCredentials] = useState(false);
-  const { setAccess, credentials } = useContext(LoginContext);
-  const actualizarState = (emi, pass) => {
-    setAccess({ email: emi, password: pass });
-    if (emi !== credentials.email && pass !== credentials.password) {
-      setErrorCredentials(true);
-      setTimeout(() => {
-        setErrorCredentials(false);
-      }, 500);
-    } else {
-      setErrorCredentials(false);
-    }
-  };
+  const { errorCredentials, actualizarState } = useErrorCredentials();
 
   return (
     <main className="main">
@@ -76,14 +63,14 @@ const Login = () => {
           <div className="input">
             <input
               type="email"
-              className={erroCredentials ? "animation" : ""}
+              className={errorCredentials ? "animation" : ""}
               name="email"
               placeholder="Email"
               autoComplete="off"
               required
             />
             <Icon
-              className={erroCredentials ? "icon iconAnimation" : "icon"}
+              className={errorCredentials ? "icon iconAnimation" : "icon"}
               icon="ic:baseline-email"
               width="20"
               height="20"
@@ -92,14 +79,14 @@ const Login = () => {
           <div className="input">
             <input
               type="password"
-              className={erroCredentials ? "animation" : ""}
+              className={errorCredentials ? "animation" : ""}
               name="password"
               placeholder="Password"
               autoComplete="off"
               required
             />
             <Icon
-              className={erroCredentials ? "icon iconAnimation" : "icon"}
+              className={errorCredentials ? "icon iconAnimation" : "icon"}
               icon="uil:padlock"
               width="20"
               height="20"

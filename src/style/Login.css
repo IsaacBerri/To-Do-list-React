@@ -174,3 +174,27 @@
   color: white;
   font-size: 16px;
 }
+
+/**************** Mediaqueries ****************/
+
+@media (min-width: 200px) and (max-width: 450px) {
+  .main {
+    background-position-x: 39%;
+  }
+  .section1 {
+    display: none;
+  }
+  .containerSection .section2 {
+    width: 60%;
+  }
+  .containerSection .section2 .optionPassword {
+    gap: 30px;
+    text-align: center;
+  }
+  .containerSection .section2 .optionPassword label, a{
+    font-size: 12px;
+  }
+  .containerSection .section2 p {
+    font-size: 13px;
+  }
+}
