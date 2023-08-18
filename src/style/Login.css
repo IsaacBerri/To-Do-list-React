@@ -186,6 +186,12 @@
   }
   .containerSection .section2 {
     width: 60%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .containerSection .section2 h2{
+    margin-top: 0;
   }
   .containerSection .section2 .optionPassword {
     gap: 30px;
