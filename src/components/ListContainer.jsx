@@ -3,8 +3,7 @@ import { ToDoContext } from '../context/ToDoContext'
 import { ModalContext } from '../context/ModalContext'
 
 const ListContainer = () => {
-  const {ListToDo} = useContext(ToDoContext)
-
+  const {ListToDo, deleteTask, editTask} = useContext(ToDoContext)
   const {handleClick} = useContext(ModalContext)
 
 
@@ -16,7 +15,8 @@ const ListContainer = () => {
           <p>{obj.Prioridad}</p>
           <p>{obj.Categoria}</p>
           <p>{obj.Fecha}</p>
-          <button onClick={() => handleClick("delete", obj.Nombre)}>X</button>
+          <button onClick={() => {handleClick("delete"); deleteTask(obj.Nombre)}}>X</button>
+          <button onClick={() => {handleClick("edit"); editTask(obj, index)}}>Editar</button>
         </div>
       ))}
     </section>

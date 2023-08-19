@@ -1,6 +1,6 @@
 import "../style/Login.css";
 import { Icon } from "@iconify/react";
-import { useErrorCredentials } from "../Hook/useErrorCredentials.js";
+import { useErrorCredentials } from "../hooks/useErrorCredentials.js";
 
 const Login = () => {
   const { errorCredentials, actualizarState } = useErrorCredentials();

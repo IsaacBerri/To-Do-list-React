@@ -1,4 +1,4 @@
-import React, {useContext, useState} from "react";
+import React, {useContext} from "react";
 import { Icon } from "@iconify/react";
 import Modals from "./Modals";
 import { ModalContext } from "../context/ModalContext";
