@@ -7,6 +7,7 @@ const useDeleteTask = () => {
   const handleDelete = (name) => {
     const deletedTask = ListToDo.filter((obj) => obj.Nombre !== name)
     setListToDo(deletedTask)
+    localStorage.setItem("List", JSON.stringify(deletedTask))
   }
 
   

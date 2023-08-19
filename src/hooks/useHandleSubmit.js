@@ -4,8 +4,17 @@ import { ToDoContext } from "../context/ToDoContext";
 const useHandleSubmit = () => {
   const { ListToDo, setListToDo } = useContext(ToDoContext);
 
+  const setLocalStorage = (value) => {
+    try {
+      setListToDo(value);
+      window.localStorage.setItem("List", JSON.stringify(value));
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   const handleSubmit = (e) => {
-    setListToDo([
+    setLocalStorage([
       ...ListToDo,
       {
         Nombre: e.target.Tarea.value,

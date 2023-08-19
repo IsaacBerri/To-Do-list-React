@@ -7,7 +7,7 @@ function App() {
 
   const {validation} = useContext(LoginContext)
 
-  if (validation) {
+  if (!validation) {
     return (
       <>
         <Login />

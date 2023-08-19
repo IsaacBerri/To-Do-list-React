@@ -3,8 +3,12 @@ import { createContext, useState } from "react";
 export const ToDoContext = createContext();
 
 export const ToDoProvider = ({ children }) => {
-  const [ListToDo, setListToDo] = useState([]);
 
+  let listaGuardada = JSON.parse(localStorage.getItem("List")) || []
+
+  const [ListToDo, setListToDo] = useState(listaGuardada);
+
+  
   const [objectDeleted, setObjectDeleted] = useState("");
   const [objectEdit, setObjectEdit] = useState({});
 

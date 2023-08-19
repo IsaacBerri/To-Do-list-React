@@ -14,6 +14,7 @@ const useEditTask = () => {
     }
     ListToDo.splice(object.index, 1, newObject)
     setListToDo([...ListToDo])
+    localStorage.setItem("List", JSON.stringify([...ListToDo]))
     
   }
 
