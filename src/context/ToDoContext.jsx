@@ -11,6 +11,7 @@ export const ToDoProvider = ({ children }) => {
   
   const [objectDeleted, setObjectDeleted] = useState("");
   const [objectEdit, setObjectEdit] = useState({});
+  const [sectionFilter, setSectionFilter] = useState("")
 
   const deleteTask = (taksName) => {
     setObjectDeleted(taksName);
@@ -28,7 +29,10 @@ export const ToDoProvider = ({ children }) => {
         deleteTask,
         objectDeleted,
         objectEdit,
-        editTask
+        editTask,
+        listaGuardada,
+        sectionFilter,
+        setSectionFilter
       }}
     >
       {children}

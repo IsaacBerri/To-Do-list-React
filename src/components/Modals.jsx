@@ -5,13 +5,15 @@ import { ModalContext } from "../context/ModalContext";
 import useDeleteTask from "../hooks/useDeleteTask";
 import { ToDoContext } from "../context/ToDoContext";
 import useEditTask from "../hooks/useEditTask";
+import useFilterTask from "../hooks/useFilterTask";
 
 const Modals = () => {
-  const { handleSubmit } = useHandleSubmit();
   const { handleClick, modalType } = useContext(ModalContext);
   const { objectDeleted, objectEdit } = useContext(ToDoContext);
+  const { handleSubmit } = useHandleSubmit();
   const { handleDelete } = useDeleteTask();
   const { handleEdit } = useEditTask();
+  const { handleClickFilter } = useFilterTask();
 
   if (modalType === "create") {
     return (
@@ -34,11 +36,13 @@ const Modals = () => {
             required
           />
           <select name="Prioridad">
+            <option>Ninguna</option>
             <option>Alta</option>
             <option>Media</option>
             <option>Baja</option>
           </select>
           <select name="Categoria">
+            <option>Ninguna</option>
             <option>Hogar</option>
             <option>GYM</option>
             <option>Trabajo</option>
@@ -89,11 +93,13 @@ const Modals = () => {
             required
           />
           <select name="Prioridad" defaultValue={objectEdit.Prioridad}>
+            <option>Ninguna</option>
             <option>Alta</option>
             <option>Media</option>
             <option>Baja</option>
           </select>
           <select name="Categoria" defaultValue={objectEdit.Categoria}>
+            <option>Ninguna</option>
             <option>Hogar</option>
             <option>GYM</option>
             <option>Trabajo</option>
@@ -104,6 +110,25 @@ const Modals = () => {
           <input name="Fecha" type="date" defaultValue={objectEdit.Fecha} />
           <button>Confirm</button>
         </form>
+      </div>
+    );
+  } else if (modalType === "filter") {
+    return (
+      <div className="containerModal">
+        <span onClick={handleClick}>
+          <Icon icon="ph:x-bold" color="#f21285" width="25" height="25" />
+        </span>
+        <button onClick={() => {handleClick(); handleClickFilter("Todo")}}>Todo</button>
+        <button onClick={() => {handleClick(); handleClickFilter("Prioridad")}}>
+          Prioridad
+        </button>
+        <button onClick={() => {handleClick(); handleClickFilter("Fecha")}}>Fecha</button>
+        <button onClick={() => {handleClick(); handleClickFilter("Hogar")}}>Hogar</button>
+        <button onClick={() => {handleClick(); handleClickFilter("GYM")}}>GYM</button>
+        <button onClick={() => {handleClick(); handleClickFilter("Trabajo")}}>Trabajo</button>
+        <button onClick={() => {handleClick(); handleClickFilter("Estudio")}}>Estudio</button>
+        <button onClick={() => {handleClick(); handleClickFilter("Juegos")}}>Juegos</button>
+        <button onClick={() => {handleClick(); handleClickFilter("Otros")}}>Otros</button>
       </div>
     );
   }

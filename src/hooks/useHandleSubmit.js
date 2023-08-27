@@ -21,8 +21,9 @@ const useHandleSubmit = () => {
         Prioridad: e.target.Prioridad.value,
         Categoria: e.target.Categoria.value,
         Fecha: e.target.Fecha.value,
-      },
+      }
     ]);
+    e.target.Tarea.value = ""
   };
 
   return {

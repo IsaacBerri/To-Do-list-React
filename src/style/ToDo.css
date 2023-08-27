@@ -21,6 +21,17 @@
 
 }
 
+.ContainerToDos .task {
+    width: 100%;
+    height: 60px;
+    background-color: blueviolet;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+}
+
 .containerModal {
     width: 400px;
     height: 500px;
